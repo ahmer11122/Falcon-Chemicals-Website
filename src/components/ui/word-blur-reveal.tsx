@@ -7,19 +7,21 @@ interface WordBlurRevealProps {
     children: string;
     className?: string;
     activeWordStyles?: { word: string; className: string }[];
+    offset?: any;
 }
 
 export function WordBlurReveal({
     children,
     className = "",
     activeWordStyles = [],
+    offset,
 }: WordBlurRevealProps) {
     const words = children.split(" ");
     const containerRef = useRef<HTMLParagraphElement>(null);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start 90%", "end 60%"],
+        offset: offset ?? (["start 90%", "end 60%"] as any),
     });
 
     // Apply a spring to the scroll progress for that buttery smooth lag feel

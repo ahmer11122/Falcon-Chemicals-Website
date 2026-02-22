@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion, useScroll, useSpring } from "framer-motion";
 import {
     Menu,
     X,
@@ -19,13 +21,38 @@ const navLinks = [
 export function GlassNavbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
-    const mobileMenuRef = useRef<HTMLDivElement>(null);
     const navRef = useRef<HTMLDivElement>(null);
+    const pathname = usePathname();
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
+    const [activeSection, setActiveSection] = useState("");
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 10);
         window.addEventListener("scroll", onScroll, { passive: true });
         return () => window.removeEventListener("scroll", onScroll);
+    }, []);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            { rootMargin: "-50% 0px -50% 0px" }
+        );
+
+        const sections = document.querySelectorAll("section[id]");
+        sections.forEach((section) => observer.observe(section));
+
+        return () => observer.disconnect();
     }, []);
 
     // Click outside to close
@@ -86,26 +113,33 @@ export function GlassNavbar() {
 
                         {/* Desktop nav — centered, minimal */}
                         <div className="hidden md:flex items-center gap-0.5">
-                            {navLinks.map((link) => (
-                                <div
-                                    key={link.label}
-                                    className="relative"
-                                >
-                                    <Link
-                                        href={link.href}
-                                        prefetch={true}
-                                        className={cn(
-                                            "relative flex items-center gap-1 px-3.5 py-1.5 text-[13px] font-medium rounded-lg transition-all duration-300",
-                                            "text-white/55 hover:text-white/95",
-                                            "hover:bg-white/[0.06]"
-                                        )}
+                            {navLinks.map((link) => {
+                                const isActive =
+                                    (link.href === "/" && activeSection === "") ||
+                                    link.href === `/#${activeSection}` ||
+                                    (pathname === link.href && activeSection === "");
+
+                                return (
+                                    <div
+                                        key={link.label}
+                                        className="relative"
                                     >
-                                        {link.label}
-                                    </Link>
-
-
-                                </div>
-                            ))}
+                                        <Link
+                                            href={link.href}
+                                            prefetch={true}
+                                            data-active={isActive}
+                                            className={cn(
+                                                "relative flex items-center gap-1 px-3.5 py-1.5 text-[13px] font-medium rounded-lg transition-all duration-300",
+                                                "text-white/55 hover:text-white/95",
+                                                "hover:bg-white/[0.06]",
+                                                "data-[active=true]:text-white data-[active=true]:bg-white/[0.08]"
+                                            )}
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    </div>
+                                );
+                            })}
                         </div>
 
                         {/* Right side — single clean CTA */}
@@ -146,25 +180,35 @@ export function GlassNavbar() {
 
                     {/* Mobile menu — minimal, spacious */}
                     <div
-                        ref={mobileMenuRef}
                         className={cn(
                             "md:hidden overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
                             mobileOpen ? "max-h-[420px] opacity-100" : "max-h-0 opacity-0"
                         )}
                     >
                         <div className="border-t border-white/[0.08] px-4 py-4 space-y-1">
-                            {navLinks.map((link) => (
-                                <div key={link.label}>
-                                    <Link
-                                        href={link.href}
-                                        prefetch={true}
-                                        className="flex items-center justify-between px-4 py-3 text-[14px] font-medium text-white/70 hover:text-white hover:bg-white/[0.08] rounded-xl transition-all duration-300"
-                                        onClick={closeMobile}
-                                    >
-                                        {link.label}
-                                    </Link>
-                                </div>
-                            ))}
+                            {navLinks.map((link) => {
+                                const isActive =
+                                    (link.href === "/" && activeSection === "") ||
+                                    link.href === `/#${activeSection}` ||
+                                    (pathname === link.href && activeSection === "");
+
+                                return (
+                                    <div key={link.label}>
+                                        <Link
+                                            href={link.href}
+                                            prefetch={true}
+                                            data-active={isActive}
+                                            className={cn(
+                                                "flex items-center justify-between px-4 py-3 text-[14px] font-medium text-white/70 hover:text-white hover:bg-white/[0.08] rounded-xl transition-all duration-300",
+                                                "data-[active=true]:text-white data-[active=true]:bg-white/[0.08]"
+                                            )}
+                                            onClick={closeMobile}
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    </div>
+                                );
+                            })}
 
                             {/* Mobile CTA */}
                             <div className="pt-4 mt-2 border-t border-white/[0.08]">
@@ -172,7 +216,7 @@ export function GlassNavbar() {
                                     href="https://wa.me/923206377227"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center justify-center gap-2 w-full px-4 py-3 text-[14px] font-semibold text-white bg-white/[0.1] border border-white/[0.1] rounded-xl hover:bg-white/[0.15] transition-all duration-300"
+                                    className="flex items-center justify-center gap-2 w-full px-4 py-3 text-[14px] font-semibold text-white bg-teal-600/80 border border-teal-500/40 rounded-xl hover:bg-teal-600 transition-all duration-300"
                                     onClick={closeMobile}
                                 >
                                     Contact
@@ -181,6 +225,14 @@ export function GlassNavbar() {
                             </div>
                         </div>
                     </div>
+                </div>
+
+                {/* Premium Scroll Progress Bar - Contained within the pill */}
+                <div className="absolute bottom-0 inset-x-0 h-[1px] overflow-hidden rounded-b-2xl opacity-60">
+                    <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-teal-400 via-cyan-400 to-teal-500 origin-left"
+                        style={{ scaleX }}
+                    />
                 </div>
             </div>
         </nav>

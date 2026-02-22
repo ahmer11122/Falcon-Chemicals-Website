@@ -66,13 +66,14 @@ export function GallerySection() {
     }
 
     return (
-        <section id="gallery" className="relative bg-white overflow-hidden">
+        <section id="gallery" className="relative bg-teal-50 overflow-hidden">
             {/* Background texture */}
             <div
                 className="absolute inset-0 opacity-[0.4]"
                 style={{
                     backgroundImage: `radial-gradient(circle at 1px 1px, #e4e4e7 1px, transparent 0)`,
                     backgroundSize: "48px 48px",
+                    maskImage: "radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%)",
                 }}
             />
 
@@ -92,7 +93,7 @@ export function GallerySection() {
                         className="flex items-center justify-center gap-3"
                     >
                         <div className="h-px w-8 bg-gradient-to-r from-transparent to-teal-600/60" />
-                        <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-zinc-500">
+                        <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-teal-800">
                             Our Work
                         </span>
                         <div className="h-px w-8 bg-gradient-to-l from-transparent to-cyan-600/60" />
@@ -106,7 +107,7 @@ export function GallerySection() {
                         custom={1}
                         className="text-4xl md:text-5xl lg:text-[3.5rem] font-semibold leading-[1.1] tracking-[-0.02em] text-zinc-900"
                     >
-                        Our Latest <br /> <span className="text-teal-800/50">Work.</span>
+                        Our Latest <br /> <span className="text-teal-900">Work.</span>
                     </motion.h2>
 
                     <motion.p
@@ -134,14 +135,14 @@ export function GallerySection() {
                                 viewport={{ once: true, amount: 0.15 }}
                                 transition={{ duration: 0.7, delay: rowIdx * 0.1, ease: [0.16, 1, 0.3, 1] }}
                                 className={cn(
-                                    "grid gap-4",
+                                    "grid gap-5",
                                     isOdd ? "grid-cols-[2fr_3fr]" : "grid-cols-[3fr_2fr]"
                                 )}
                             >
                                 {/* Left image */}
-                                <div className="relative group overflow-hidden rounded-2xl cursor-pointer">
+                                <div className="relative group overflow-hidden rounded-3xl cursor-pointer">
                                     <div className={cn(
-                                        "relative w-full overflow-hidden rounded-2xl",
+                                        "relative w-full overflow-hidden rounded-3xl",
                                         isOdd ? "h-[340px]" : "h-[400px]"
                                     )}>
                                         <Image
@@ -151,7 +152,8 @@ export function GallerySection() {
                                             fill
                                             sizes="(max-width: 1200px) 60vw, 50vw"
                                         />
-                                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/5 transition-all duration-500" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-all duration-500" />
+                                        <div className="absolute inset-0 bg-teal-900/0 group-hover:bg-teal-900/10 transition-all duration-500" />
                                     </div>
                                     {/* Always-visible label */}
                                     <div className="absolute bottom-0 inset-x-0 p-5">
@@ -164,9 +166,9 @@ export function GallerySection() {
                                 </div>
 
                                 {/* Right image */}
-                                <div className="relative group overflow-hidden rounded-2xl cursor-pointer">
+                                <div className="relative group overflow-hidden rounded-3xl cursor-pointer">
                                     <div className={cn(
-                                        "relative w-full overflow-hidden rounded-2xl",
+                                        "relative w-full overflow-hidden rounded-3xl",
                                         isOdd ? "h-[340px]" : "h-[400px]"
                                     )}>
                                         <Image
@@ -176,7 +178,8 @@ export function GallerySection() {
                                             fill
                                             sizes="(max-width: 1200px) 40vw, 35vw"
                                         />
-                                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/5 transition-all duration-500" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-all duration-500" />
+                                        <div className="absolute inset-0 bg-teal-900/0 group-hover:bg-teal-900/10 transition-all duration-500" />
                                     </div>
                                     {/* Always-visible label */}
                                     <div className="absolute bottom-0 inset-x-0 p-5">
@@ -206,7 +209,7 @@ export function GallerySection() {
                                 idx >= mobileVisibleCount ? "hidden" : "block"
                             )}
                         >
-                            <div className="relative w-full h-[260px] overflow-hidden rounded-2xl">
+                            <div className="relative w-full h-[260px] overflow-hidden rounded-3xl">
                                 <Image
                                     className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
                                     src={img.src}
@@ -214,7 +217,8 @@ export function GallerySection() {
                                     fill
                                     sizes="100vw"
                                 />
-                                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/5 transition-all duration-500" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-all duration-500" />
+                                <div className="absolute inset-0 bg-teal-900/0 group-hover:bg-teal-900/10 transition-all duration-500" />
                             </div>
                             {/* Always-visible label */}
                             <div className="absolute bottom-0 inset-x-0 p-4">
@@ -232,7 +236,7 @@ export function GallerySection() {
                 <div className="mt-8 flex justify-center md:hidden">
                     <button
                         onClick={handleShowMore}
-                        className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-teal-700 text-white rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:bg-teal-600 hover:scale-[1.03] hover:-translate-y-0.5 active:scale-[0.97]"
+                        className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-zinc-900 text-white rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:bg-zinc-800 hover:scale-[1.03] hover:-translate-y-0.5 active:scale-[0.97]"
                     >
                         <span className="relative z-10 text-sm font-semibold tracking-wide">
                             {mobileVisibleCount >= galleryImages.length ? "Show Less" : "Show More"}
@@ -240,6 +244,23 @@ export function GallerySection() {
                         <ArrowRight className="relative z-10 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </button>
                 </div>
+
+                {/* Section CTA */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mt-16 text-center"
+                >
+                    <p className="text-zinc-500 text-sm mb-4">Like what you see?</p>
+                    <a
+                        href="https://wa.me/923206377227"
+                        target="_blank"
+                        className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 text-white rounded-xl text-sm font-semibold hover:bg-zinc-700 hover:ring-2 hover:ring-white hover:ring-offset-2 transition-all duration-300"
+                    >
+                        Discuss Your Project <ArrowRight className="w-4 h-4" />
+                    </a>
+                </motion.div>
             </div>
         </section>
     );

@@ -20,16 +20,14 @@ const companyLinks = [
     { label: "Gallery", href: "/#gallery" },
 ];
 
-const legalLinks = [
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms of Service", href: "/terms" },
-];
-
 export function FooterSection() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="relative border-t border-zinc-200 bg-white pt-24 pb-12 font-outfit overflow-hidden">
+        <footer className="relative bg-white pt-24 pb-12 font-outfit overflow-hidden">
+            {/* Soft teal bleed from above */}
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal-200 to-transparent" />
+            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-teal-50/30 to-transparent pointer-events-none" />
             <div className="relative max-w-7xl mx-auto px-6 md:px-10 z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
                     {/* Brand Column (Span 4) */}
@@ -86,7 +84,7 @@ export function FooterSection() {
 
                     {/* Company Links (Span 2) */}
                     <div className="lg:col-span-2 space-y-6">
-                        <h3 className="text-zinc-900 font-semibold text-lg tracking-wide">Company</h3>
+                        <h3 className="text-[11px] tracking-[0.2em] uppercase text-teal-800 font-semibold">Company</h3>
                         <ul className="space-y-3">
                             {companyLinks.map((link) => (
                                 <li key={link.label}>
@@ -107,7 +105,7 @@ export function FooterSection() {
 
                     {/* Services (Span 3) */}
                     <div className="lg:col-span-3 space-y-6">
-                        <h3 className="text-zinc-900 font-semibold text-lg tracking-wide">Services</h3>
+                        <h3 className="text-[11px] tracking-[0.2em] uppercase text-teal-800 font-semibold">Services</h3>
                         <ul className="space-y-3">
                             {services.map((service) => (
                                 <li key={service.label}>
@@ -126,7 +124,7 @@ export function FooterSection() {
 
                     {/* Contact (Span 3) */}
                     <div className="lg:col-span-3 space-y-6">
-                        <h3 className="text-zinc-900 font-semibold text-lg tracking-wide">Contact</h3>
+                        <h3 className="text-[11px] tracking-[0.2em] uppercase text-teal-800 font-semibold">Contact</h3>
                         <div className="space-y-5">
                             <div className="flex items-start gap-4 group">
                                 <div>
@@ -156,27 +154,46 @@ export function FooterSection() {
                                     </div>
                                 </div>
                             </div>
+
+                            <a
+                                href="https://wa.me/923206377227"
+                                target="_blank"
+                                className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 bg-zinc-900 text-white text-xs font-semibold rounded-lg hover:bg-zinc-700 transition-all duration-300"
+                            >
+                                Chat on WhatsApp
+                                <ArrowRight className="w-3 h-3" />
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="pt-8 border-t border-zinc-200 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-                    <p className="text-zinc-500 text-sm">
+                <div className="pt-8 border-t border-zinc-100 flex flex-col md:flex-row items-center justify-between gap-4">
+                    <p className="text-zinc-400 text-sm">
                         © {currentYear} Falcon Chemical Construction. All rights reserved.
                     </p>
-                    <div className="flex items-center gap-6 justify-center md:justify-start">
-                        {legalLinks.map((link) => (
-                            <Link
-                                key={link.label}
-                                href={link.href}
-                                prefetch={true}
-                                className="text-zinc-500 hover:text-teal-700 text-sm transition-colors"
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
-                    </div>
+
+                    {/* Agency Credit */}
+                    <a
+                        href="https://www.aurtists.design/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center gap-2 text-zinc-400 hover:text-zinc-700 transition-colors duration-300"
+                    >
+                        <span className="text-xs">Crafted by</span>
+                        <span className="text-xs font-semibold tracking-wide text-zinc-600 group-hover:text-teal-700 transition-colors duration-300">
+                            Aurtists
+                        </span>
+                        <svg
+                            viewBox="0 0 24 24"
+                            className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-teal-600"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                        >
+                            <path d="M7 17L17 7M17 7H7M17 7v10" />
+                        </svg>
+                    </a>
                 </div>
             </div>
         </footer>
