@@ -1,5 +1,6 @@
 import { AuroraBackgroundDemo } from "@/components/ui/aurora-background-demo";
 import { GlassNavbar } from "@/components/ui/glass-navbar";
+import { TrustBanner } from "@/components/ui/trust-banner";
 import { AboutSection } from "@/components/ui/about-section";
 import { ServicesSection } from "@/components/ui/services-section";
 import { GallerySection } from "@/components/ui/gallery-section";
@@ -11,6 +12,7 @@ export default function Home() {
     <>
       <GlassNavbar />
       <AuroraBackgroundDemo />
+      <TrustBanner />
       <AboutSection />
       <ServicesSection />
       <GallerySection />

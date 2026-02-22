@@ -15,7 +15,7 @@ export function AuroraBackgroundDemo() {
                 <div className="text-left w-full max-w-7xl">
                     <TextReveal
                         as="h1"
-                        className="text-4xl md:text-7xl lg:text-8xl font-bold tracking-tight dark:text-white leading-[1.1] mb-3 md:mb-0"
+                        className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight dark:text-white leading-[1.1] mb-2 md:mb-3"
                         delay={0.2}
                         staggerSpeed={0.08}
                     >
@@ -23,7 +23,7 @@ export function AuroraBackgroundDemo() {
                     </TextReveal>
 
                     <ScrollReveal delay={0.6} blur>
-                        <span className="text-teal-800/70 dark:text-zinc-400 font-medium text-xl md:text-5xl lg:text-6xl mt-2 block font-[family-name:var(--font-outfit)]">
+                        <span className="text-teal-700 dark:text-zinc-400 font-semibold text-lg md:text-4xl lg:text-5xl mt-2 block font-[family-name:var(--font-outfit)] leading-snug">
                             Waterproofing &amp; Heat Proofing Experts
                         </span>
                     </ScrollReveal>

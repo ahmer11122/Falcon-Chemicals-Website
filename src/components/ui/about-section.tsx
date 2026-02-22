@@ -3,7 +3,7 @@
 import { TimelineContent } from "@/components/ui/timeline-animation";
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
-import { ScrollReveal } from "@/components/ui/scroll-reveal";
+import { WordBlurReveal } from "@/components/ui/word-blur-reveal";
 
 import { useRef } from "react";
 
@@ -46,13 +46,13 @@ export function AboutSection() {
                     {/* Header with social icons */}
                     <div className="flex justify-between items-center mb-4 lg:mb-8 w-full lg:w-[85%] lg:absolute lg:top-4 z-10">
                         <div className="flex items-center gap-2 text-lg lg:text-xl">
-                            <span className="text-black animate-spin">✱</span>
+                            <span className="text-teal-600 animate-spin">✱</span>
                             <TimelineContent
                                 as="span"
                                 animationNum={0}
                                 timelineRef={heroRef}
                                 customVariants={revealVariants}
-                                className="text-sm font-medium text-gray-600"
+                                className="text-sm font-semibold text-teal-700 tracking-wider"
                             >
                                 WHO WE ARE
                             </TimelineContent>
@@ -113,6 +113,10 @@ export function AboutSection() {
                         customVariants={scaleVariants}
                         className="relative group w-full"
                     >
+                        {/* More sophisticated multi-layered glow for premium depth */}
+                        <div className="absolute inset-x-20 inset-y-20 bg-teal-500/15 blur-[120px] pointer-events-none rounded-full animate-pulse duration-[4000ms]" />
+                        <div className="absolute inset-x-40 inset-y-40 bg-cyan-400/10 blur-[80px] pointer-events-none rounded-full" />
+
                         <svg
                             className="w-full h-[250px] sm:h-[400px] md:h-[500px] lg:h-auto"
                             width={"100%"}
@@ -151,13 +155,13 @@ export function AboutSection() {
                             className="flex gap-4"
                         >
                             <div className="flex items-center gap-2 mb-2 sm:text-base text-xs">
-                                <AnimatedCounter target={25} suffix="+" className="text-amber-600 font-bold font-[family-name:var(--font-geist-mono)]" />
-                                <span className="text-gray-600">years of excellence</span>
-                                <span className="text-gray-300">|</span>
+                                <AnimatedCounter target={25} suffix="+" className="text-teal-700 font-bold font-[family-name:var(--font-geist-mono)]" />
+                                <span className="text-zinc-600">years of excellence</span>
+                                <span className="text-zinc-300">|</span>
                             </div>
                             <div className="flex items-center gap-2 mb-2 sm:text-base text-xs">
-                                <AnimatedCounter target={500} suffix="+" className="text-amber-600 font-bold font-[family-name:var(--font-geist-mono)]" />
-                                <span className="text-gray-600">chemical solutions</span>
+                                <AnimatedCounter target={500} suffix="+" className="text-teal-700 font-bold font-[family-name:var(--font-geist-mono)]" />
+                                <span className="text-zinc-600">chemical solutions</span>
                             </div>
                         </TimelineContent>
 
@@ -165,7 +169,10 @@ export function AboutSection() {
                 </div>
                 {/* Main Content */}
                 <div className="mt-8 flex flex-col items-center text-center max-w-4xl mx-auto">
-                    <h1 className="sm:text-4xl md:text-5xl text-2xl !leading-[110%] font-semibold font-manrope text-gray-900 mb-8">
+                    <h1 className="relative inline-block sm:text-4xl md:text-5xl text-2xl !leading-[1.15] font-semibold font-manrope text-gray-900 mb-12 tracking-tight transition-all duration-300">
+                        <span className="block mb-2">
+                            <span className="text-teal-700 tracking-[-0.02em]">Precision Chemistry</span>
+                        </span>
                         <VerticalCutReveal
                             splitBy="words"
                             staggerDuration={0.1}
@@ -175,20 +182,25 @@ export function AboutSection() {
                                 type: "spring",
                                 stiffness: 250,
                                 damping: 30,
-                                delay: 0.2,
+                                delay: 0.4,
                             }}
                         >
-                            Precision chemistry for a world that demands more.
+                            for a world that demands more.
                         </VerticalCutReveal>
+
+                        {/* Single Elegant Gradient Underline - No dual-line effect */}
+                        <div className="absolute -bottom-4 left-0 w-full h-[2px] bg-gradient-to-r from-teal-600 via-teal-600/30 to-transparent rounded-full" />
                     </h1>
 
-                    <ScrollReveal delay={0.2} blur>
-                        <div className="text-gray-600 sm:text-base text-sm text-left">
-                            <p className="leading-relaxed font-[family-name:var(--font-manrope)]">
-                                Falcon Chemical Construction provides permanent solutions for roof leakage, seepage, and heat. We serve homes, offices, factories, and more using imported chemical and polyester sheets. Our services include Walls Water & Heat Proofing, water tank treatments, and heat-proofing roofs with temperature control. We guarantee quality with a 5-year warranty across Punjab, KPK, and Azad Kashmir.
-                            </p>
-                        </div>
-                    </ScrollReveal>
+                    <WordBlurReveal
+                        className="text-gray-600 sm:text-base text-sm font-[family-name:var(--font-manrope)] leading-relaxed text-left"
+                        activeWordStyles={[
+                            { word: "5-year", className: "text-teal-700 font-semibold italic" },
+                            { word: "warranty", className: "text-teal-700 font-semibold italic" }
+                        ]}
+                    >
+                        Falcon Chemical Construction provides permanent solutions for roof leakage, seepage, and heat. We serve homes, offices, factories, and more using imported chemical and polyester sheets. Our services include Walls Water & Heat Proofing, water tank treatments, and heat-proofing roofs with temperature control. We guarantee quality with a 5-year warranty across Punjab, KPK, and Azad Kashmir.
+                    </WordBlurReveal>
                 </div>
             </div>
         </section>
