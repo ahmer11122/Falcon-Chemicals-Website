@@ -77,8 +77,8 @@ export function GallerySection() {
             />
 
             {/* Accent glows */}
-            <div className="absolute top-1/4 left-0 w-[500px] h-[500px] rounded-full bg-blue-100/50 blur-[140px] pointer-events-none" />
-            <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] rounded-full bg-indigo-100/40 blur-[120px] pointer-events-none" />
+            <div className="absolute top-1/4 left-0 w-[500px] h-[500px] rounded-full bg-teal-100/50 blur-[140px] pointer-events-none" />
+            <div className="absolute bottom-1/4 right-0 w-[400px] h-[400px] rounded-full bg-cyan-100/40 blur-[120px] pointer-events-none" />
 
             <div className="relative z-20 mx-auto max-w-7xl px-6 md:px-10 pt-16 md:pt-24 pb-8 md:pb-16">
                 {/* ─── Section Header ─── */}
@@ -91,11 +91,11 @@ export function GallerySection() {
                         custom={0}
                         className="flex items-center justify-center gap-3"
                     >
-                        <div className="h-px w-8 bg-gradient-to-r from-transparent to-blue-600/60" />
+                        <div className="h-px w-8 bg-gradient-to-r from-transparent to-teal-600/60" />
                         <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-zinc-500">
                             Our Work
                         </span>
-                        <div className="h-px w-8 bg-gradient-to-l from-transparent to-indigo-600/60" />
+                        <div className="h-px w-8 bg-gradient-to-l from-transparent to-cyan-600/60" />
                     </motion.div>
 
                     <motion.h2
@@ -106,7 +106,7 @@ export function GallerySection() {
                         custom={1}
                         className="text-4xl md:text-5xl lg:text-[3.5rem] font-semibold leading-[1.1] tracking-[-0.02em] text-zinc-900"
                     >
-                        Our Latest <br /> <span className="text-zinc-400">Work.</span>
+                        Our Latest <br /> <span className="text-teal-800/50">Work.</span>
                     </motion.h2>
 
                     <motion.p
@@ -232,7 +232,7 @@ export function GallerySection() {
                 <div className="mt-8 flex justify-center md:hidden">
                     <button
                         onClick={handleShowMore}
-                        className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-zinc-900 text-white rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:bg-zinc-800"
+                        className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-teal-700 text-white rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:bg-teal-600 hover:scale-[1.03] hover:-translate-y-0.5 active:scale-[0.97]"
                     >
                         <span className="relative z-10 text-sm font-semibold tracking-wide">
                             {mobileVisibleCount >= galleryImages.length ? "Show Less" : "Show More"}

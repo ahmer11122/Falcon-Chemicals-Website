@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Outfit, Manrope } from "next/font/google";
 import { JsonLd } from "@/components/json-ld";
+import { SmoothScroll } from "@/components/ui/smooth-scroll";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -47,14 +48,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_PK",
-    url: "https://falconchemicals.com", // Replace with actual domain if known, otherwise placeholder
+    url: "https://falconchemicals.com",
     title: "Falcon Chemical Construction | Waterproofing & Heat Proofing Experts",
     description:
       "Premium chemical construction solutions in Pakistan. Specialists in roof waterproofing, heat proofing, termite control, and water tank treatments.",
     siteName: "Falcon Chemical Construction",
     images: [
       {
-        url: "/opengraph-image.png", // We should ideally ensure this image exists or is generated
+        url: "/opengraph-image.png",
         width: 1200,
         height: 630,
         alt: "Falcon Chemical Construction Services",
@@ -68,7 +69,7 @@ export const metadata: Metadata = {
       "Premium chemical construction solutions in Pakistan. Specialists in roof waterproofing, heat proofing, termite control, and water tank treatments.",
     images: ["/opengraph-image.png"],
   },
-  metadataBase: new URL("https://falconchemicals.com"), // Replace with actual domain
+  metadataBase: new URL("https://falconchemicals.com"),
   robots: {
     index: true,
     follow: true,
@@ -93,7 +94,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} ${manrope.variable} antialiased`}
       >
         <JsonLd />
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );

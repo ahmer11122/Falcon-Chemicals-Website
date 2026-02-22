@@ -192,7 +192,7 @@ function QuotationModal({
                 <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-zinc-200 to-transparent" />
 
                 {/* Subtle corner glow */}
-                <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-blue-100/50 blur-[80px] pointer-events-none" />
+                <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-teal-100/50 blur-[80px] pointer-events-none" />
 
                 {/* ─── Header ─── */}
                 <div className="relative flex items-start justify-between p-5 md:p-6 pb-0">
@@ -353,7 +353,7 @@ function QuotationModal({
                         className={cn(
                             "group flex items-center justify-center gap-2 w-full py-3.5 rounded-xl text-[14px] font-semibold transition-all duration-300",
                             (service.pricingModel === "sqft" && numericArea > 0) || service.pricingModel !== "sqft"
-                                ? "bg-zinc-900 text-white hover:bg-zinc-800 shadow-md hover:shadow-lg"
+                                ? "bg-teal-700 text-white hover:bg-teal-600 shadow-md hover:shadow-lg"
                                 : "bg-zinc-100 text-zinc-300 pointer-events-none"
                         )}
                     >
@@ -413,11 +413,11 @@ export function ServicesSection() {
                             custom={0}
                             className="flex items-center justify-center gap-3"
                         >
-                            <div className="h-px w-8 bg-gradient-to-r from-transparent to-blue-600/60" />
+                            <div className="h-px w-8 bg-gradient-to-r from-transparent to-teal-600/60" />
                             <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-zinc-500">
                                 Our Expertise
                             </span>
-                            <div className="h-px w-8 bg-gradient-to-l from-transparent to-indigo-600/60" />
+                            <div className="h-px w-8 bg-gradient-to-l from-transparent to-cyan-600/60" />
                         </motion.div>
 
                         <motion.h2
@@ -429,7 +429,7 @@ export function ServicesSection() {
                             className="text-4xl md:text-5xl lg:text-[3.5rem] font-semibold leading-[1.1] tracking-[-0.02em] text-zinc-900"
                         >
                             Engineered for <br />
-                            <span className="text-zinc-400">Total Protection.</span>
+                            <span className="text-teal-800/50">Total Protection.</span>
                         </motion.h2>
 
                         <motion.p
@@ -465,7 +465,7 @@ export function ServicesSection() {
                                     <div className="flex-1 w-full max-w-xl relative group cursor-pointer" onClick={() => setSelectedService(service)}>
                                         {/* Decorative Shadow/Glow behind the Squircle */}
                                         <div
-                                            className="absolute inset-4 bg-blue-200/40 blur-[40px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                                            className="absolute inset-4 bg-teal-200/40 blur-[40px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"
                                         />
 
                                         <div
@@ -505,7 +505,7 @@ export function ServicesSection() {
                                         <div className="pt-4">
                                             <button
                                                 onClick={() => setSelectedService(service)}
-                                                className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-zinc-900 text-white rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:bg-zinc-800"
+                                                className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-teal-700 text-white rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:bg-teal-600 hover:scale-[1.03] hover:-translate-y-0.5 active:scale-[0.97]"
                                             >
                                                 <span className="relative z-10 text-sm font-semibold tracking-wide">
                                                     Calculate Estimate

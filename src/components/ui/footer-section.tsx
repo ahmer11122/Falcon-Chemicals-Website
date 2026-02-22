@@ -93,9 +93,9 @@ export function FooterSection() {
                                     <Link
                                         href={link.href}
                                         prefetch={true}
-                                        className="text-zinc-600 hover:text-zinc-900 text-sm transition-colors duration-200 flex items-center gap-1 group w-fit"
+                                        className="text-zinc-600 hover:text-teal-700 text-sm transition-colors duration-200 flex items-center gap-1 group w-fit"
                                     >
-                                        <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-zinc-900" />
+                                        <ArrowRight className="w-3 h-3 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-300 text-teal-700" />
                                         <span className="group-hover:translate-x-1 transition-transform duration-300">
                                             {link.label}
                                         </span>
@@ -114,9 +114,9 @@ export function FooterSection() {
                                     <Link
                                         href={service.href}
                                         prefetch={true}
-                                        className="text-zinc-600 hover:text-zinc-900 text-sm transition-colors duration-200 flex items-center gap-2 group w-fit"
+                                        className="text-zinc-600 hover:text-teal-700 text-sm transition-colors duration-200 flex items-center gap-2 group w-fit"
                                     >
-                                        <span className="w-1 h-1 rounded-full bg-zinc-400 group-hover:bg-zinc-900 transition-colors duration-300" />
+                                        <span className="w-1 h-1 rounded-full bg-zinc-400 group-hover:bg-teal-700 transition-colors duration-300" />
                                         <span>{service.label}</span>
                                     </Link>
                                 </li>
@@ -171,7 +171,7 @@ export function FooterSection() {
                                 key={link.label}
                                 href={link.href}
                                 prefetch={true}
-                                className="text-zinc-500 hover:text-zinc-900 text-sm transition-colors"
+                                className="text-zinc-500 hover:text-teal-700 text-sm transition-colors"
                             >
                                 {link.label}
                             </Link>

@@ -75,11 +75,11 @@ export const TestimonialsSection = () => {
                         viewport={{ once: true }}
                         className="flex items-center justify-center gap-3"
                     >
-                        <div className="h-px w-8 bg-gradient-to-r from-transparent to-blue-600/60" />
+                        <div className="h-px w-8 bg-gradient-to-r from-transparent to-teal-600/60" />
                         <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-zinc-500">
                             Trusted Clients
                         </span>
-                        <div className="h-px w-8 bg-gradient-to-l from-transparent to-indigo-600/60" />
+                        <div className="h-px w-8 bg-gradient-to-l from-transparent to-cyan-600/60" />
                     </motion.div>
 
                     <motion.h2
@@ -90,7 +90,7 @@ export const TestimonialsSection = () => {
                         className="text-4xl md:text-5xl lg:text-[3.5rem] font-semibold leading-[1.1] tracking-[-0.02em] text-zinc-900"
                     >
                         Voice of <br />
-                        <span className="text-zinc-400">Our Clients.</span>
+                        <span className="text-teal-800/50">Our Clients.</span>
                     </motion.h2>
 
                     <motion.p

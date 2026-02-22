@@ -6,6 +6,19 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* ─── Brand Colors ─── */
+  --brand-primary: #0F766E;
+  --brand-primary-light: #0D9488;
+  --brand-electric: #06B6D4;
+  --brand-warm: #F59E0B;
+
+  /* Semantic Usage */
+  --cta-bg: var(--brand-primary);
+  --cta-bg-hover: var(--brand-primary-light);
+  --accent-glow: rgba(6, 182, 212, 0.15);
+  --section-gradient-from: var(--brand-primary);
+  --section-gradient-to: var(--brand-electric);
 }
 
 @theme inline {
@@ -44,6 +57,24 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* ─── Fluid Typography System ─── */
+h1, .heading-hero {
+  font-family: var(--font-outfit);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+h2, .heading-section {
+  font-family: var(--font-outfit);
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+}
+
+.text-stat-number {
+  font-family: var(--font-geist-mono);
+  letter-spacing: -0.03em;
+}
+
 /* ─── Marquee Animation ─── */
 @keyframes marquee-scroll {
   from {
@@ -70,6 +101,53 @@ body {
   }
 }
 
+/* ─── Section Divider Shimmer ─── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.section-divider-shimmer {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--brand-primary),
+    var(--brand-electric),
+    var(--brand-primary),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* ─── Card Hover Glow ─── */
+.card-hover-glow {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: 1px solid transparent;
+}
+
+.card-hover-glow:hover {
+  border-color: rgba(13, 148, 136, 0.25);
+  box-shadow:
+    0 0 24px rgba(6, 182, 212, 0.08),
+    0 8px 32px rgba(0, 0, 0, 0.06);
+  transform: translateY(-4px);
+}
+
+/* ─── Image Hover Zoom ─── */
+.img-hover-zoom {
+  overflow: hidden;
+}
+
+.img-hover-zoom img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.img-hover-zoom:hover img {
+  transform: scale(1.05);
+}
+
 /*
  * Tailwind v4 equivalent of the addVariablesForColors plugin.
  * Exposes Tailwind color palette values as CSS custom properties
@@ -80,6 +158,41 @@ body {
   --white: #ffffff;
   --black: #000000;
   --transparent: transparent;
+
+  /* Teal palette (Brand Primary) */
+  --teal-50: #f0fdfa;
+  --teal-100: #ccfbf1;
+  --teal-200: #99f6e4;
+  --teal-300: #5eead4;
+  --teal-400: #2dd4bf;
+  --teal-500: #14b8a6;
+  --teal-600: #0d9488;
+  --teal-700: #0f766e;
+  --teal-800: #115e59;
+  --teal-900: #134e4a;
+  --teal-950: #042f2e;
+
+  /* Cyan palette (Electric Accent) */
+  --cyan-50: #ecfeff;
+  --cyan-100: #cffafe;
+  --cyan-200: #a5f3fc;
+  --cyan-300: #67e8f9;
+  --cyan-400: #22d3ee;
+  --cyan-500: #06b6d4;
+  --cyan-600: #0891b2;
+  --cyan-700: #0e7490;
+  --cyan-800: #155e75;
+  --cyan-900: #164e63;
+
+  /* Emerald palette (for Aurora) */
+  --emerald-200: #a7f3d0;
+  --emerald-300: #6ee7b7;
+  --emerald-400: #34d399;
+
+  /* Amber palette (Warm Accent) */
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --amber-600: #d97706;
 
   /* Blue palette */
   --blue-50: oklch(0.97 0.014 254.604);
@@ -119,4 +232,13 @@ body {
   --violet-800: oklch(0.432 0.232 292.759);
   --violet-900: oklch(0.38 0.189 293.745);
   --violet-950: oklch(0.283 0.141 291.089);
+}
+
+/* ─── Reduced Motion Support ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

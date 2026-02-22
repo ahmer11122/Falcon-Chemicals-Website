@@ -149,12 +149,12 @@ export function AboutSection() {
                             className="flex gap-4"
                         >
                             <div className="flex items-center gap-2 mb-2 sm:text-base text-xs">
-                                <span className="text-black font-bold">25+</span>
+                                <span className="text-amber-600 font-bold font-[family-name:var(--font-geist-mono)]">25+</span>
                                 <span className="text-gray-600">years of excellence</span>
                                 <span className="text-gray-300">|</span>
                             </div>
                             <div className="flex items-center gap-2 mb-2 sm:text-base text-xs">
-                                <span className="text-black font-bold">500+</span>
+                                <span className="text-amber-600 font-bold font-[family-name:var(--font-geist-mono)]">500+</span>
                                 <span className="text-gray-600">chemical solutions</span>
                             </div>
                         </TimelineContent>

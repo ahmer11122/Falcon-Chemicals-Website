@@ -18,10 +18,10 @@ export const TestimonialCard = ({ text, name, role }: Testimonial) => {
     .slice(0, 2);
 
   return (
-    <div className="relative flex-shrink-0 w-[280px] md:w-[360px] p-5 md:p-7 rounded-2xl border border-zinc-100 bg-white group transition-all duration-300 hover:border-zinc-200 hover:shadow-sm">
+    <div className="relative flex-shrink-0 w-[280px] md:w-[360px] p-5 md:p-7 rounded-2xl border border-zinc-100 bg-white group transition-all duration-300 hover:border-teal-200 hover:shadow-sm">
       {/* Decorative quote mark */}
       <span
-        className="absolute top-4 right-5 text-[64px] leading-none font-serif text-zinc-100 select-none pointer-events-none transition-colors duration-300 group-hover:text-zinc-200"
+        className="absolute top-4 right-5 text-[64px] leading-none font-serif text-zinc-100 select-none pointer-events-none transition-colors duration-300 group-hover:text-teal-200"
         aria-hidden="true"
       >
         &ldquo;
@@ -34,7 +34,7 @@ export const TestimonialCard = ({ text, name, role }: Testimonial) => {
 
       {/* Author */}
       <div className="relative flex items-center gap-3">
-        <div className="flex items-center justify-center h-9 w-9 rounded-full bg-zinc-100 text-zinc-500 text-xs font-semibold shrink-0 transition-colors duration-300 group-hover:bg-zinc-900 group-hover:text-white">
+        <div className="flex items-center justify-center h-9 w-9 rounded-full bg-zinc-100 text-zinc-500 text-xs font-semibold shrink-0 transition-colors duration-300 group-hover:bg-teal-700 group-hover:text-white">
           {initials}
         </div>
         <div className="flex flex-col">

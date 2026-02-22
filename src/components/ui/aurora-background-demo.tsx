@@ -20,7 +20,7 @@ export function AuroraBackgroundDemo() {
                 <div className="text-left w-full max-w-7xl">
                     <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold tracking-tight dark:text-white leading-[1.1] mb-3 md:mb-0">
                         Pakistan’s Premier <br />
-                        <span className="text-zinc-400 dark:text-zinc-400 font-medium text-xl md:text-5xl lg:text-6xl mt-2 block">
+                        <span className="text-teal-800/70 dark:text-zinc-400 font-medium text-xl md:text-5xl lg:text-6xl mt-2 block">
                             Waterproofing & Heat Proofing Experts
                         </span>
                     </h1>
@@ -46,7 +46,7 @@ export function AuroraBackgroundDemo() {
                         href="https://wa.me/923206377227"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group relative inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 text-[14px] sm:text-[15px] font-semibold text-white rounded-xl bg-zinc-900 hover:bg-zinc-800 shadow-lg hover:shadow-xl transition-all duration-300 w-full sm:w-auto"
+                        className="group relative inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 text-[14px] sm:text-[15px] font-semibold text-white rounded-xl bg-teal-700 hover:bg-teal-600 shadow-lg hover:shadow-xl hover:scale-[1.03] hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300 w-full sm:w-auto"
                     >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
