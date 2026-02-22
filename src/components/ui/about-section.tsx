@@ -2,6 +2,8 @@
 // Force re-index for lucide-react resolution
 import { TimelineContent } from "@/components/ui/timeline-animation";
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
+import { AnimatedCounter } from "@/components/ui/animated-counter";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 import { useRef } from "react";
 
@@ -149,12 +151,12 @@ export function AboutSection() {
                             className="flex gap-4"
                         >
                             <div className="flex items-center gap-2 mb-2 sm:text-base text-xs">
-                                <span className="text-amber-600 font-bold font-[family-name:var(--font-geist-mono)]">25+</span>
+                                <AnimatedCounter target={25} suffix="+" className="text-amber-600 font-bold font-[family-name:var(--font-geist-mono)]" />
                                 <span className="text-gray-600">years of excellence</span>
                                 <span className="text-gray-300">|</span>
                             </div>
                             <div className="flex items-center gap-2 mb-2 sm:text-base text-xs">
-                                <span className="text-amber-600 font-bold font-[family-name:var(--font-geist-mono)]">500+</span>
+                                <AnimatedCounter target={500} suffix="+" className="text-amber-600 font-bold font-[family-name:var(--font-geist-mono)]" />
                                 <span className="text-gray-600">chemical solutions</span>
                             </div>
                         </TimelineContent>
@@ -180,18 +182,13 @@ export function AboutSection() {
                         </VerticalCutReveal>
                     </h1>
 
-                    <TimelineContent
-                        as="div"
-                        animationNum={1}
-                        timelineRef={heroRef}
-                        customVariants={revealVariants}
-                        className="text-gray-600 sm:text-base text-sm text-left"
-                    >
-                        <p className="leading-relaxed">
-                            Falcon Chemical Construction provides permanent solutions for roof leakage, seepage, and heat. We serve homes, offices, factories, and more using imported chemical and polyester sheets. Our services include Walls Water & Heat Proofing, water tank treatments, and heat-proofing roofs with temperature control. We guarantee quality with a 5-year warranty across Punjab, KPK, and Azad Kashmir.
-                        </p>
-
-                    </TimelineContent>
+                    <ScrollReveal delay={0.2} blur>
+                        <div className="text-gray-600 sm:text-base text-sm text-left">
+                            <p className="leading-relaxed font-[family-name:var(--font-manrope)]">
+                                Falcon Chemical Construction provides permanent solutions for roof leakage, seepage, and heat. We serve homes, offices, factories, and more using imported chemical and polyester sheets. Our services include Walls Water & Heat Proofing, water tank treatments, and heat-proofing roofs with temperature control. We guarantee quality with a 5-year warranty across Punjab, KPK, and Azad Kashmir.
+                            </p>
+                        </div>
+                    </ScrollReveal>
                 </div>
             </div>
         </section>

@@ -3,46 +3,58 @@
 import { motion } from "motion/react";
 import React from "react";
 import { AuroraBackground } from "@/components/ui/aurora-background";
+import { TextReveal } from "@/components/ui/text-reveal";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function AuroraBackgroundDemo() {
     return (
         <AuroraBackground className="items-start justify-start pt-36 pb-16 md:justify-center md:pt-0 md:pb-0">
-            <motion.div
-                initial={{ opacity: 0.0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                    delay: 0.3,
-                    duration: 0.8,
-                    ease: "easeInOut",
-                }}
-                className="relative flex flex-col gap-4 md:gap-8 items-start justify-center px-6 md:px-16 lg:px-32 h-full w-full font-[family-name:var(--font-outfit)]"
-            >
+            <div className="relative flex flex-col gap-4 md:gap-8 items-start justify-center px-6 md:px-16 lg:px-32 h-full w-full font-[family-name:var(--font-outfit)]">
+
+                {/* ─── Hero Heading with Word-by-Word Reveal ─── */}
                 <div className="text-left w-full max-w-7xl">
-                    <h1 className="text-4xl md:text-7xl lg:text-8xl font-bold tracking-tight dark:text-white leading-[1.1] mb-3 md:mb-0">
-                        Pakistan’s Premier <br />
-                        <span className="text-teal-800/70 dark:text-zinc-400 font-medium text-xl md:text-5xl lg:text-6xl mt-2 block">
-                            Waterproofing & Heat Proofing Experts
+                    <TextReveal
+                        as="h1"
+                        className="text-4xl md:text-7xl lg:text-8xl font-bold tracking-tight dark:text-white leading-[1.1] mb-3 md:mb-0"
+                        delay={0.2}
+                        staggerSpeed={0.08}
+                    >
+                        Pakistan's Premier
+                    </TextReveal>
+
+                    <ScrollReveal delay={0.6} blur>
+                        <span className="text-teal-800/70 dark:text-zinc-400 font-medium text-xl md:text-5xl lg:text-6xl mt-2 block font-[family-name:var(--font-outfit)]">
+                            Waterproofing &amp; Heat Proofing Experts
                         </span>
-                    </h1>
+                    </ScrollReveal>
                 </div>
 
-                <p className="font-light text-base md:text-2xl dark:text-neutral-300 max-w-7xl text-left leading-relaxed mt-2 md:mt-0">
-                    Protect your property with industrial-grade chemical solutions. From permanent roof leakage repairs to advanced heat insulation, we deliver guaranteed results for homes and industries across Pakistan using premium imported materials.
-                </p>
+                {/* ─── Subtitle with Blur Reveal ─── */}
+                <ScrollReveal delay={0.8} blur>
+                    <p className="font-light text-base md:text-2xl dark:text-neutral-300 max-w-7xl text-left leading-relaxed mt-2 md:mt-0 font-[family-name:var(--font-manrope)]">
+                        Protect your property with industrial-grade chemical solutions. From permanent roof leakage repairs to advanced heat insulation, we deliver guaranteed results for homes and industries across Pakistan using premium imported materials.
+                    </p>
+                </ScrollReveal>
 
-                {/* ─── Hero CTA Buttons ─── */}
+                {/* ─── Hero CTA Buttons with Staggered Entrance ─── */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{
-                        delay: 0.6,
-                        duration: 0.7,
-                        ease: "easeInOut",
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={{
+                        hidden: {},
+                        visible: {
+                            transition: { staggerChildren: 0.15, delayChildren: 1.0 },
+                        },
                     }}
                     className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4 md:mt-6 w-full sm:w-auto"
                 >
                     {/* Primary — WhatsApp */}
-                    <a
+                    <motion.a
+                        variants={{
+                            hidden: { opacity: 0, y: 20, filter: "blur(6px)" },
+                            visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] } },
+                        }}
                         href="https://wa.me/923206377227"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -74,10 +86,14 @@ export function AuroraBackgroundDemo() {
                             <path d="M5 12h14" />
                             <path d="m12 5 7 7-7 7" />
                         </svg>
-                    </a>
+                    </motion.a>
 
                     {/* Secondary — Phone Call */}
-                    <a
+                    <motion.a
+                        variants={{
+                            hidden: { opacity: 0, y: 20, filter: "blur(6px)" },
+                            visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] } },
+                        }}
                         href="tel:+923206377227"
                         className="group relative inline-flex items-center justify-center gap-2.5 px-6 py-3.5 sm:px-8 sm:py-4 text-[14px] sm:text-[15px] font-medium text-zinc-700 rounded-xl border border-zinc-300 bg-white/60 backdrop-blur-sm hover:bg-white hover:border-zinc-400 hover:text-zinc-900 shadow-sm hover:shadow-md transition-all duration-300 w-full sm:w-auto"
                     >
@@ -96,10 +112,10 @@ export function AuroraBackgroundDemo() {
                             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                         </svg>
                         +92 320 6377227
-                    </a>
+                    </motion.a>
                 </motion.div>
 
-            </motion.div>
+            </div>
         </AuroraBackground>
     );
 }
