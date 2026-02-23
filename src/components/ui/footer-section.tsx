@@ -24,7 +24,7 @@ export function FooterSection() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="relative bg-white pt-24 pb-12 font-outfit overflow-hidden">
+        <footer className="relative bg-white pt-24 pb-12 font-[family-name:var(--font-body)] overflow-hidden">
             {/* Soft teal bleed from above */}
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-teal-200 to-transparent" />
             <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-teal-50/30 to-transparent pointer-events-none" />
@@ -158,7 +158,7 @@ export function FooterSection() {
                             <a
                                 href="https://wa.me/923206377227"
                                 target="_blank"
-                                className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 bg-zinc-900 text-white text-xs font-semibold rounded-lg hover:bg-zinc-700 transition-all duration-300"
+                                className="inline-flex items-center gap-2 mt-4 px-5 py-2.5 bg-teal-700 text-white text-xs font-semibold rounded-lg hover:bg-teal-600 transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 active:scale-[0.97] hover:shadow-md"
                             >
                                 Chat on WhatsApp
                                 <ArrowRight className="w-3 h-3" />

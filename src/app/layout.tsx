@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Outfit, Manrope } from "next/font/google";
+import { Geist, Geist_Mono, Playfair_Display, DM_Sans, Lora } from "next/font/google";
 import { JsonLd } from "@/components/json-ld";
 import { SmoothScroll } from "@/components/ui/smooth-scroll";
 import "./globals.css";
@@ -14,13 +14,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
+  subsets: ["latin"],
+});
+
+const lora = Lora({
+  variable: "--font-lora",
   subsets: ["latin"],
 });
 
@@ -91,7 +96,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable} ${manrope.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${dmSans.variable} ${lora.variable} antialiased`}
       >
         <JsonLd />
         <SmoothScroll>

@@ -525,7 +525,7 @@ export function ServicesSection() {
                                         <div className="pt-4">
                                             <button
                                                 onClick={() => setSelectedService(service)}
-                                                className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-zinc-900 text-white rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:bg-zinc-700 hover:scale-[1.03] hover:-translate-y-0.5 active:scale-[0.97] hover:ring-2 hover:ring-white hover:ring-offset-2 hover:ring-offset-teal-50"
+                                                className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-teal-700 text-white rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:bg-teal-600 hover:scale-[1.03] hover:-translate-y-0.5 active:scale-[0.97]"
                                             >
                                                 <span className="relative z-10 text-sm font-semibold tracking-wide">
                                                     Calculate Estimate

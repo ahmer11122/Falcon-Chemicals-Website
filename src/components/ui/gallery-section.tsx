@@ -236,7 +236,7 @@ export function GallerySection() {
                 <div className="mt-8 flex justify-center md:hidden">
                     <button
                         onClick={handleShowMore}
-                        className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-zinc-900 text-white rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:bg-zinc-800 hover:scale-[1.03] hover:-translate-y-0.5 active:scale-[0.97]"
+                        className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-teal-700 text-white rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:bg-teal-600 hover:scale-[1.03] hover:-translate-y-0.5 active:scale-[0.97]"
                     >
                         <span className="relative z-10 text-sm font-semibold tracking-wide">
                             {mobileVisibleCount >= galleryImages.length ? "Show Less" : "Show More"}
@@ -256,7 +256,7 @@ export function GallerySection() {
                     <a
                         href="https://wa.me/923206377227"
                         target="_blank"
-                        className="inline-flex items-center gap-2 px-8 py-4 bg-zinc-900 text-white rounded-xl text-sm font-semibold hover:bg-zinc-700 hover:ring-2 hover:ring-white hover:ring-offset-2 transition-all duration-300"
+                        className="inline-flex items-center gap-2 px-8 py-4 bg-teal-700 text-white rounded-xl text-sm font-semibold hover:bg-teal-600 hover:scale-[1.03] hover:-translate-y-0.5 active:scale-[0.97] hover:shadow-lg transition-all duration-300"
                     >
                         Discuss Your Project <ArrowRight className="w-4 h-4" />
                     </a>

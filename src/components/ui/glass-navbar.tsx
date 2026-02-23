@@ -29,30 +29,13 @@ export function GlassNavbar() {
         damping: 30,
         restDelta: 0.001
     });
-    const [activeSection, setActiveSection] = useState("");
 
     useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 10);
+        const onScroll = () => {
+            setScrolled(window.scrollY > 10);
+        };
         window.addEventListener("scroll", onScroll, { passive: true });
         return () => window.removeEventListener("scroll", onScroll);
-    }, []);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setActiveSection(entry.target.id);
-                    }
-                });
-            },
-            { rootMargin: "-50% 0px -50% 0px" }
-        );
-
-        const sections = document.querySelectorAll("section[id]");
-        sections.forEach((section) => observer.observe(section));
-
-        return () => observer.disconnect();
     }, []);
 
     // Click outside to close
@@ -114,11 +97,6 @@ export function GlassNavbar() {
                         {/* Desktop nav — centered, minimal */}
                         <div className="hidden md:flex items-center gap-0.5">
                             {navLinks.map((link) => {
-                                const isActive =
-                                    (link.href === "/" && activeSection === "") ||
-                                    link.href === `/#${activeSection}` ||
-                                    (pathname === link.href && activeSection === "");
-
                                 return (
                                     <div
                                         key={link.label}
@@ -127,12 +105,10 @@ export function GlassNavbar() {
                                         <Link
                                             href={link.href}
                                             prefetch={true}
-                                            data-active={isActive}
                                             className={cn(
                                                 "relative flex items-center gap-1 px-3.5 py-1.5 text-[13px] font-medium rounded-lg transition-all duration-300",
                                                 "text-white/55 hover:text-white/95",
-                                                "hover:bg-white/[0.06]",
-                                                "data-[active=true]:text-white data-[active=true]:bg-white/[0.08]"
+                                                "hover:bg-white/[0.06]"
                                             )}
                                         >
                                             {link.label}
@@ -187,20 +163,13 @@ export function GlassNavbar() {
                     >
                         <div className="border-t border-white/[0.08] px-4 py-4 space-y-1">
                             {navLinks.map((link) => {
-                                const isActive =
-                                    (link.href === "/" && activeSection === "") ||
-                                    link.href === `/#${activeSection}` ||
-                                    (pathname === link.href && activeSection === "");
-
                                 return (
                                     <div key={link.label}>
                                         <Link
                                             href={link.href}
                                             prefetch={true}
-                                            data-active={isActive}
                                             className={cn(
-                                                "flex items-center justify-between px-4 py-3 text-[14px] font-medium text-white/70 hover:text-white hover:bg-white/[0.08] rounded-xl transition-all duration-300",
-                                                "data-[active=true]:text-white data-[active=true]:bg-white/[0.08]"
+                                                "flex items-center justify-between px-4 py-3 text-[14px] font-medium text-white/70 hover:text-white hover:bg-white/[0.08] rounded-xl transition-all duration-300"
                                             )}
                                             onClick={closeMobile}
                                         >
@@ -216,7 +185,7 @@ export function GlassNavbar() {
                                     href="https://wa.me/923206377227"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center justify-center gap-2 w-full px-4 py-3 text-[14px] font-semibold text-white bg-teal-600/80 border border-teal-500/40 rounded-xl hover:bg-teal-600 transition-all duration-300"
+                                    className="flex items-center justify-center gap-2 w-full px-4 py-3 text-[14px] font-semibold text-white bg-teal-700 border border-teal-600/40 rounded-xl hover:bg-teal-600 transition-all duration-300"
                                     onClick={closeMobile}
                                 >
                                     Contact
