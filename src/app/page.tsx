@@ -6,12 +6,10 @@ import { ServicesSection } from "@/components/ui/services-section";
 import { GallerySection } from "@/components/ui/gallery-section";
 import { TestimonialsSection } from "@/components/ui/testimonials-section";
 import { FooterSection } from "@/components/ui/footer-section";
-import { SplashClient } from "@/components/ui/splash-client";
 
 export default function Home() {
   return (
     <>
-      <SplashClient />
       <GlassNavbar />
       <AuroraBackgroundDemo />
       <TrustBanner />
