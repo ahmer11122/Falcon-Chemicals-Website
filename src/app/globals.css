@@ -26,21 +26,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-playfair);
-  --font-heading: var(--font-dm-sans);
-  --font-body: var(--font-lora);
-
-  /* Fluid Typography */
-  --text-xs: clamp(0.75rem, 0.71rem + 0.18vw, 0.85rem);
-  --text-sm: clamp(0.875rem, 0.83rem + 0.22vw, 1rem);
-  --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
-  --text-lg: clamp(1.125rem, 1.05rem + 0.38vw, 1.35rem);
-  --text-xl: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
-  --text-2xl: clamp(1.5rem, 1.35rem + 0.75vw, 1.875rem);
-  --text-3xl: clamp(1.875rem, 1.6rem + 1.38vw, 2.5rem);
-  --text-4xl: clamp(2.25rem, 1.8rem + 2.25vw, 3.25rem);
-  --text-5xl: clamp(3rem, 2.2rem + 4vw, 4.8rem);
-  --text-6xl: clamp(3.75rem, 2.5rem + 6.25vw, 6.5rem);
+  --font-outfit: var(--font-outfit);
+  --font-manrope: var(--font-manrope);
 
   /* Aurora animation */
   --animate-aurora: aurora 60s linear infinite;
@@ -67,20 +54,18 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* ─── Fluid Typography System ─── */
-h1,
-.heading-hero {
-  font-family: var(--font-display);
+h1, .heading-hero {
+  font-family: var(--font-outfit);
   letter-spacing: -0.02em;
   line-height: 1.1;
 }
 
-h2,
-.heading-section {
-  font-family: var(--font-heading);
+h2, .heading-section {
+  font-family: var(--font-outfit);
   letter-spacing: -0.015em;
   line-height: 1.2;
 }
@@ -118,23 +103,20 @@ h2,
 
 /* ─── Section Divider Shimmer ─── */
 @keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-
-  100% {
-    background-position: 200% 0;
-  }
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
 }
 
 .section-divider-shimmer {
   height: 2px;
-  background: linear-gradient(90deg,
-      transparent,
-      var(--brand-primary),
-      var(--brand-electric),
-      var(--brand-primary),
-      transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--brand-primary),
+    var(--brand-electric),
+    var(--brand-primary),
+    transparent
+  );
   background-size: 200% 100%;
   animation: shimmer 3s ease-in-out infinite;
 }
@@ -254,16 +236,12 @@ h2,
 
 /* ─── Reduced Motion Support ─── */
 @media (prefers-reduced-motion: reduce) {
-
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
-
 @layer utilities {
   .animate-marquee {
     animation: marquee 40s linear infinite;
@@ -271,11 +249,10 @@ h2,
 
   @keyframes marquee {
     0% {
-      transform: translateX(0%);
+        transform: translateX(0%);
     }
-
     100% {
-      transform: translateX(-50%);
+        transform: translateX(-50%);
     }
   }
 }

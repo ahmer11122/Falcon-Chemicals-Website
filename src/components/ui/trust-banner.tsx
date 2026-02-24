@@ -27,7 +27,7 @@ export function TrustBanner() {
                         key={idx}
                         className="flex items-center gap-6 sm:gap-10 group cursor-default"
                     >
-                        <span className="text-xs sm:text-sm font-semibold text-zinc-400 uppercase tracking-[0.2em] group-hover:text-teal-700 transition-colors duration-300 whitespace-nowrap font-[family-name:var(--font-heading)] pl-6 sm:pl-10">
+                        <span className="text-xs sm:text-sm font-semibold text-zinc-400 uppercase tracking-[0.2em] group-hover:text-teal-700 transition-colors duration-300 whitespace-nowrap font-[family-name:var(--font-outfit)] pl-6 sm:pl-10">
                             {service}
                         </span>
 

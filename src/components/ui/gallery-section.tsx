@@ -256,7 +256,7 @@ export function GallerySection() {
                     <a
                         href="https://wa.me/923206377227"
                         target="_blank"
-                        className="inline-flex items-center gap-2 px-8 py-4 bg-teal-700 text-white rounded-xl text-sm font-semibold hover:bg-teal-600 hover:scale-[1.03] hover:-translate-y-0.5 active:scale-[0.97] hover:shadow-lg transition-all duration-300"
+                        className="inline-flex items-center gap-2 px-8 py-4 bg-teal-700 text-white rounded-xl text-sm font-semibold hover:bg-teal-600 hover:shadow-lg hover:scale-[1.03] hover:-translate-y-0.5 active:scale-[0.97] transition-all duration-300"
                     >
                         Discuss Your Project <ArrowRight className="w-4 h-4" />
                     </a>

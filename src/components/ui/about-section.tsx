@@ -4,7 +4,7 @@ import { TimelineContent } from "@/components/ui/timeline-animation";
 import { VerticalCutReveal } from "@/components/ui/vertical-cut-reveal";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
 import { WordBlurReveal } from "@/components/ui/word-blur-reveal";
-import { motion } from "framer-motion";
+
 import { useRef } from "react";
 
 export function AboutSection() {
@@ -52,7 +52,7 @@ export function AboutSection() {
                                 animationNum={0}
                                 timelineRef={heroRef}
                                 customVariants={revealVariants}
-                                className="text-sm font-semibold text-teal-800 tracking-wider"
+                                className="text-sm font-semibold text-teal-700 tracking-wider"
                             >
                                 WHO WE ARE
                             </TimelineContent>
@@ -169,9 +169,9 @@ export function AboutSection() {
                 </div>
                 {/* Main Content */}
                 <div className="mt-8 flex flex-col items-center text-center max-w-4xl mx-auto">
-                    <h1 className="relative inline-block sm:text-4xl md:text-5xl text-2xl !leading-[1.15] font-semibold font-[family-name:var(--font-heading)] text-gray-900 mb-12 tracking-tight transition-all duration-300">
+                    <h1 className="relative inline-block sm:text-4xl md:text-5xl text-2xl !leading-[1.15] font-semibold font-manrope text-gray-900 mb-12 tracking-tight transition-all duration-300">
                         <span className="block mb-2">
-                            <span className="text-teal-900 tracking-[-0.02em]">Precision Chemistry</span>
+                            <span className="text-teal-700 tracking-[-0.02em]">Precision Chemistry</span>
                         </span>
                         <VerticalCutReveal
                             splitBy="words"
@@ -192,29 +192,15 @@ export function AboutSection() {
                         <div className="absolute -bottom-4 left-0 w-full h-[2px] bg-gradient-to-r from-teal-600 via-teal-600/30 to-transparent rounded-full" />
                     </h1>
 
-                    {/* DESKTOP */}
-                    <div className="hidden md:block w-full">
-                        <WordBlurReveal
-                            className="text-gray-600 sm:text-base text-sm font-[family-name:var(--font-body)] leading-relaxed text-left"
-                            activeWordStyles={[
-                                { word: "5-year", className: "text-teal-900 font-semibold italic" },
-                                { word: "warranty", className: "text-teal-900 font-semibold italic" }
-                            ]}
-                        >
-                            Falcon Chemical Construction provides permanent solutions for roof leakage, seepage, and heat. We serve homes, offices, factories, and more using imported chemical and polyester sheets. Our services include Walls Water & Heat Proofing, water tank treatments, and heat-proofing roofs with temperature control. We guarantee quality with a 5-year warranty across Punjab, KPK, and Azad Kashmir.
-                        </WordBlurReveal>
-                    </div>
-
-                    {/* MOBILE */}
-                    <motion.p
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.5 }}
-                        transition={{ duration: 0.5 }}
-                        className="block md:hidden text-gray-600 text-sm font-[family-name:var(--font-body)] leading-relaxed text-left w-full"
+                    <WordBlurReveal
+                        className="text-gray-600 sm:text-base text-sm font-[family-name:var(--font-manrope)] leading-relaxed text-left"
+                        activeWordStyles={[
+                            { word: "5-year", className: "text-teal-700 font-semibold italic" },
+                            { word: "warranty", className: "text-teal-700 font-semibold italic" }
+                        ]}
                     >
-                        Falcon Chemical Construction provides permanent solutions for roof leakage, seepage, and heat. We serve homes, offices, factories, and more using imported chemical and polyester sheets. Our services include Walls Water & Heat Proofing, water tank treatments, and heat-proofing roofs with temperature control. We guarantee quality with a <span className="text-teal-900 font-semibold italic">5-year warranty</span> across Punjab, KPK, and Azad Kashmir.
-                    </motion.p>
+                        Falcon Chemical Construction provides permanent solutions for roof leakage, seepage, and heat. We serve homes, offices, factories, and more using imported chemical and polyester sheets. Our services include Walls Water & Heat Proofing, water tank treatments, and heat-proofing roofs with temperature control. We guarantee quality with a 5-year warranty across Punjab, KPK, and Azad Kashmir.
+                    </WordBlurReveal>
                 </div>
             </div>
         </section>

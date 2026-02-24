@@ -9,13 +9,13 @@ import { ScrollReveal } from "@/components/ui/scroll-reveal";
 export function AuroraBackgroundDemo() {
     return (
         <AuroraBackground className="items-start justify-start pt-36 pb-16 md:justify-center md:pt-0 md:pb-0">
-            <div className="relative flex flex-col gap-4 md:gap-8 items-start justify-center px-6 md:px-16 lg:px-32 h-full w-full font-[family-name:var(--font-body)]">
+            <div className="relative flex flex-col gap-4 md:gap-8 items-start justify-center px-6 md:px-16 lg:px-32 h-full w-full font-[family-name:var(--font-outfit)]">
 
                 {/* ─── Hero Heading with Word-by-Word Reveal ─── */}
                 <div className="text-left w-full max-w-7xl">
                     <TextReveal
                         as="h1"
-                        className="text-3xl md:text-6xl lg:text-7xl font-bold font-[family-name:var(--font-display)] tracking-tight dark:text-white leading-[1.1] mb-2 md:mb-3"
+                        className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight dark:text-white leading-[1.1] mb-2 md:mb-3"
                         delay={0.2}
                         staggerSpeed={0.08}
                     >
@@ -23,7 +23,7 @@ export function AuroraBackgroundDemo() {
                     </TextReveal>
 
                     <ScrollReveal delay={0.6} blur>
-                        <span className="text-teal-700 dark:text-zinc-400 font-semibold text-lg md:text-4xl lg:text-5xl mt-2 block font-[family-name:var(--font-heading)] leading-snug">
+                        <span className="text-teal-700 dark:text-zinc-400 font-semibold text-lg md:text-4xl lg:text-5xl mt-2 block font-[family-name:var(--font-outfit)] leading-snug">
                             Waterproofing &amp; Heat Proofing Experts
                         </span>
                     </ScrollReveal>
@@ -31,7 +31,7 @@ export function AuroraBackgroundDemo() {
 
                 {/* ─── Subtitle with Blur Reveal ─── */}
                 <ScrollReveal delay={0.8} blur>
-                    <p className="font-light text-base md:text-2xl dark:text-neutral-300 max-w-7xl text-left leading-relaxed mt-2 md:mt-0 font-[family-name:var(--font-body)]">
+                    <p className="font-light text-base md:text-2xl dark:text-neutral-300 max-w-7xl text-left leading-relaxed mt-2 md:mt-0 font-[family-name:var(--font-manrope)]">
                         Protect your property with industrial-grade chemical solutions. From permanent roof leakage repairs to advanced heat insulation, we deliver guaranteed results for homes and industries across Pakistan using premium imported materials.
                     </p>
                 </ScrollReveal>
